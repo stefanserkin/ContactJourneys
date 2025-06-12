@@ -13,7 +13,7 @@ public with sharing class ParticipationJourneyBatch implements Database.Batchabl
     public void execute(Database.BatchableContext bc, List<SObject> sobjs) {
         Set<Id> recordIds = new Map<Id, SObject>(sobjs).keySet();
         Map<String, Object> inputs = new Map<String, Object> { 'recordIds' => recordIds };
-        Flow.Interview journeyFlow = Flow.Interview.createInterview(batchSetting.Flow_Api_Name__c, inputs);
+        Flow.Interview journeyFlow = Flow.Interview.createInterview(batchSetting.Flow_API_Name__c, inputs);
         journeyFlow.start();
     }
 
